@@ -348,11 +348,6 @@ body { background: #fafafa; color: #333; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.emoji-track {
-  display: flex;
-  gap: 10px;
-  animation: scrollEmojis 30s linear infinite;
-}
 
 .emoji-track:hover {
   animation-play-state: paused; /* pause on hover */
