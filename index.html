@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Social App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- AUTH SECTION -->
+  <div class="main" id="auth-section">
+    <div id="signup-box" class="form-container">
+      <h1>Sign Up</h1>
+      <input type="text" id="signup-name" placeholder="Enter your name">
+      <input type="text" id="signup-email" placeholder="Enter your email">
+      <input type="password" id="signup-password" placeholder="Enter your password">
+      <input type="button" value="Sign Up" onclick="signup()">
+      <p class="toggle-text">Already have an account? <span id="show-login">Login here</span></p>
+    </div>
+
+    <div id="login-box" class="form-container" style="display:none;">
+      <h1>Login</h1>
+      <input type="text" id="login-email" placeholder="Enter your email">
+      <input type="password" id="login-password" placeholder="Enter your password">
+      <input type="button" value="Login" onclick="login()">
+      <p class="toggle-text">Don't have an account? <span id="show-signup">Sign up here</span></p>
+    </div>
+  </div>
+
+  <!-- FEED SECTION -->
+  <div id="feed-section" style="display:none;">
+    <!-- NAVBAR -->
+    <!-- <nav class="navbar">
+      <div class="nav-left"><h2>MiniFeed</h2></div>
+      <div class="nav-right">
+        <span id="welcome-user">Welcome</span>
+        <button onclick="toggleTheme()" id="theme-btn"><i class="fa-solid fa-moon"></i></button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+    
+    <div class="srch">
+    <div class="nav-center">
+        <input type="text" id="search" placeholder="Search posts..." oninput="renderPosts()">
+        <select id="sort" onchange="renderPosts()">
+            <option value="latest">Latest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="mostLiked">Most Liked</option>
+        </select>
+    </div>
+    </div>
+     -->
+
+
+
+
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left"><h2>MiniFeed</h2></div>
+  <div class="nav-right">
+    <p id="welcome-user">Welcome</p>
+    <button onclick="toggleTheme()" id="theme-btn"><i class="fa-solid fa-moon"></i></button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- SEARCH / SORT BAR -->
+<div class="search-section">
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search posts..." oninput="renderPosts()">
+    <select id="sort" onchange="renderPosts()">
+      <option value="latest">Latest First</option>
+      <option value="oldest">Oldest First</option>
+      <option value="mostLiked">Most Liked</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+    <!-- POST CREATION -->
+    <section class="post-creation">
+      <textarea id="post-text" placeholder="What's on your mind?"></textarea>
+      <div class="img-emoji-box">
+        <input type="text" id="post-img" placeholder="Image URL (optional)">
+      </div>
+      <div class="emoji-marquee">
+  <div class="emoji-track">
+    <button class="emoji" onclick="addEmoji('😊')">😊</button>
+    <button class="emoji" onclick="addEmoji('😂')">😂</button>
+    <button class="emoji" onclick="addEmoji('❤️')">❤️</button>
+    <button class="emoji" onclick="addEmoji('😍')">😍</button>
+    <button class="emoji" onclick="addEmoji('🤣')">🤣</button>
+    <button class="emoji" onclick="addEmoji('🥰')">🥰</button>
+    <button class="emoji" onclick="addEmoji('😊')">😊</button>
+    <button class="emoji" onclick="addEmoji('😂')">😂</button>
+    <button class="emoji" onclick="addEmoji('❤️')">❤️</button>
+    <button class="emoji" onclick="addEmoji('😍')">😍</button>
+    <button class="emoji" onclick="addEmoji('🤣')">🤣</button>
+    <button class="emoji" onclick="addEmoji('🥰')">🥰</button>
+    <button class="emoji" onclick="addEmoji('😎')">😎</button>
+    <button class="emoji" onclick="addEmoji('😢')">😢</button>
+    <button class="emoji" onclick="addEmoji('👍')">👍</button>
+    <button class="emoji" onclick="addEmoji('🙏')">🙏</button>
+    <button class="emoji" onclick="addEmoji('💖')">💖</button>
+    <button class="emoji" onclick="addEmoji('🎉')">🎉</button>
+  </div>
+</div>
+
+      <button onclick="savePost()"><i class="fa-solid fa-paper-plane"></i> Post</button>
+    </section>
+
+    <!-- POSTS FEED -->
+    <section id="posts-container"></section>
+  </div>
+ 
+  <!-- EDIT MODAL -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <h3>Edit Post</h3>
+      <textarea id="edit-text"></textarea>
+      <input type="text" id="edit-img" placeholder="Image URL (optional)">
+      <button onclick="updatePost()">Update</button>
+      <button onclick="closeEdit()">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
